@@ -1,0 +1,68 @@
+client_id: vivicasafacile
+client_name: Vivi Casa Facile
+domain: https://www.vivicasafacile.it
+timezone: Europe/Rome
+currency: EUR
+
+sources:
+  ga4:
+    enabled: false
+    property_id_env: GA4_PROPERTY_ID
+    bigquery_dataset_env: GA4_BIGQUERY_DATASET
+  search_console:
+    enabled: false
+    site_url_env: GSC_SITE_URL
+  google_ads:
+    enabled: false
+    customer_id_env: GOOGLE_ADS_CUSTOMER_ID
+  ghl:
+    enabled: false
+    location_id_env: GHL_LOCATION_ID
+  sheet_lead_log:
+    enabled: false
+    sheet_id_env: LEAD_LOG_SHEET_ID
+
+services:
+  - id: traslochi
+    name: Traslochi
+    active: true
+    priority: 1
+  - id: sgomberi
+    name: Sgomberi
+    active: true
+    priority: 2
+  - id: imbiancatura
+    name: Imbiancatura
+    active: true
+    priority: 2
+  - id: pulizie
+    name: Pulizie
+    active: true
+    priority: 2
+  - id: luce-gas
+    name: Luce e gas
+    active: true
+    priority: 3
+  - id: telefonia
+    name: Internet casa
+    active: true
+    priority: 3
+  - id: assicurazioni
+    name: Assicurazioni
+    active: true
+    priority: 3
+
+cities:
+  - id: genova
+    name: Genova
+    priority: 1
+  - id: recco
+    name: Recco
+    priority: 2
+  - id: chiavari
+    name: Chiavari
+    priority: 2
+  - id: sanremo
+    name: Sanremo
+    priority: 2
+
