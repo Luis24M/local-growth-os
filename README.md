@@ -159,6 +159,44 @@ closed: it rejects unknown source types and refuses literal credentials —
 credential-bearing fields may only name an environment variable. See
 `docs/data-model.md` for the dimensions a config feeds.
 
+### Local warehouse (DuckDB MVP)
+
+`src/warehouse/duckdb/` builds a zero-cost local DuckDB warehouse from a client
+config plus CSV/JSON fact exports. No BigQuery, no credentials, no network.
+
+Place a client's exports in its **git-ignored** data directory, named per table:
+
+```text
+data/private/<client>/
+  fact_search_query.csv     # or .json
+  fact_lead.json            # or .csv
+  fact_event.csv
+  fact_ad_spend.csv
+```
+
+Then build and inspect the SEO opportunities:
+
+```bash
+npm run build-warehouse -- <clientId> [--data <dir>] [--db <path>] [--top N]
+# example against public test fixtures (no private data needed):
+npm run build-warehouse -- vivicasafacile --data tests/fixtures/warehouse/democo
+```
+
+How it works:
+
+- Dimensions (`dim_client`, `dim_service`, `dim_city`) are seeded from the
+  validated config — never hardcoded to any client.
+- Facts are loaded generically: only columns shared by the file and the table
+  are inserted, and `client_id` is stamped from the config, never read from the
+  file. Missing files are skipped.
+- `mart_seo_opportunities` ranks query/page rows with a transparent, documented
+  score (demand, striking-distance position, city priority, service margin, low
+  CTR, minus cannibalization). No search volume is invented.
+- Default DB is `:memory:`; pass `--db data/private/<client>/warehouse.duckdb`
+  to persist (also git-ignored).
+
+Public fake fixtures live in `tests/fixtures/warehouse/`.
+
 ## Non-Negotiables
 
 - Public repo, no secrets.
