@@ -13,7 +13,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "validate-config": "tsx src/config/cli.ts",
-    "build-warehouse": "tsx src/warehouse/duckdb/cli.ts"
+    "build-warehouse": "tsx src/warehouse/duckdb/cli.ts",
+    "import-lead-log": "tsx src/connectors/sheet-lead-log/cli.ts"
   },
   "dependencies": {
     "@duckdb/node-api": "^1.5.4-r.1",

@@ -1,0 +1,6 @@
+channel,created_at,service,city,page,name,phone,email,utm_source,utm_campaign,gclid,fbclid,lead_status,lead_id
+form,2026-06-10T09:00:00,Cleaning,Springfield,/cleaning/springfield,Lead A,555-0100,a@example.com,google,spring_promo,Cj0gclidX,,new,
+form,2026-06-11,Painting,,/painting,Lead B,,,,,,,,
+whatsapp,2026-06-10T10:00:00,Cleaning,Springfield,/cleaning/springfield,,,,,,,,,
+call,2026-06-12,,,/contact,,,,,,,,,
+newsletter,2026-06-12,,,/blog,,,,,,,,,
