@@ -1,0 +1,5 @@
+canale,servizio,pagina,nome,telefono,origine,note
+form,Traslochi,/lp/traslochi,Mario Bianchi,555-0123,google / spring,Quando: subito
+whatsapp,,/contatti,,,,clic (invio non confermato)
+call,,/lp/traslochi,,,,clic (invio non confermato)
+form,Sgomberi,/servizi/sgomberi,Anna Verdi,,,

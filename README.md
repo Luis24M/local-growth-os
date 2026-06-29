@@ -197,6 +197,30 @@ How it works:
 
 Public fake fixtures live in `tests/fixtures/warehouse/`.
 
+### Sheet lead log import
+
+`src/connectors/sheet-lead-log/` imports a web lead+click log exported as CSV
+from Google Sheets (CSV first — no Sheets API) into the warehouse:
+
+```bash
+npm run import-lead-log -- <clientId> [csvPath] [--mapping identity|vcf]
+# default csvPath: data/private/<clientId>/lead_log.csv
+```
+
+It is mapping-driven, so any client's column layout works. Two presets ship:
+`identity` (canonical English columns) and `vcf` (the pilot's Italian sheet,
+derived from the web repo's logger). How rows are normalized:
+
+- A row whose channel is the form value becomes a **lead** (`fact_lead`).
+- A WhatsApp/phone-tap row becomes **click intent** (`fact_event`,
+  `whatsapp_click`/`call_click`) — intent, never a confirmed message or sale.
+- Names, phones, and emails are reduced to `*_present` boolean flags; the values
+  are never stored. UTM/gclid/fbclid/page/service/city are preserved when present.
+- Service/city labels resolve to config slugs; `client_id` comes from the config.
+
+Known limit: if a sheet packs several UTMs into one column (as the pilot's
+`origine` does), per-UTM fields are left null rather than guessed.
+
 ## Non-Negotiables
 
 - Public repo, no secrets.
