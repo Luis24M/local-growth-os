@@ -141,6 +141,24 @@ scripts/
 CONTRIBUTING.md        # branch/commit/PR and safety rules
 ```
 
+## Development
+
+Code is TypeScript on Node 20+.
+
+```bash
+npm install
+npm run typecheck
+npm test
+# validate a client config (no secrets, env-var references only):
+npm run validate-config -- clients/vivicasafacile/config.example.yml
+```
+
+The config loader (`src/config/`) reads `clients/<client>/config.yml` (falling
+back to `config.example.yml`), validates it with a strict schema, and fails
+closed: it rejects unknown source types and refuses literal credentials —
+credential-bearing fields may only name an environment variable. See
+`docs/data-model.md` for the dimensions a config feeds.
+
 ## Non-Negotiables
 
 - Public repo, no secrets.
