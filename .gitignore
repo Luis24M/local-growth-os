@@ -12,6 +12,8 @@ coverage/
 *.sqlite
 *.sqlite3
 *.db
+*.duckdb
+*.duckdb.wal
 *.parquet
 *.csv
 *.xlsx
