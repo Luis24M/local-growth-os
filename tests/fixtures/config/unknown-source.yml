@@ -1,0 +1,22 @@
+# Fixture: structurally valid client config except for an unknown source type.
+client_id: testco
+client_name: Test Co
+domain: https://www.example.com
+timezone: Europe/Rome
+currency: EUR
+sources:
+  ga4:
+    enabled: false
+    property_id_env: GA4_PROPERTY_ID
+  tiktok_ads: # <- not a known source type; loader must reject this
+    enabled: true
+    account_id_env: TIKTOK_ACCOUNT_ID
+services:
+  - id: traslochi
+    name: Traslochi
+    active: true
+    priority: 1
+cities:
+  - id: genova
+    name: Genova
+    priority: 1
