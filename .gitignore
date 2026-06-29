@@ -24,3 +24,9 @@ service-account*.json
 *credentials*.json
 *token*.json
 
+# Public fixtures and committed examples may use the data formats blocked above.
+# Private/raw data stays blocked by data/raw/ and data/private/ — never negate those.
+!tests/fixtures/
+!tests/fixtures/**
+!examples/**
+

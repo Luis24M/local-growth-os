@@ -134,6 +134,11 @@ templates/
   seo-brief.md
 examples/
   vivicasafacile-weekly-report.example.md
+data/
+  README.md            # private/raw layout (git-ignored data)
+scripts/
+  preflight.sh         # local secret/data guard, run before committing
+CONTRIBUTING.md        # branch/commit/PR and safety rules
 ```
 
 ## Non-Negotiables
@@ -146,6 +151,12 @@ examples/
 - First versions are read-only.
 - Any write action in GoHighLevel, Ads, or CRM requires explicit approval.
 - Commits must be short and must not include co-author trailers.
+
+## Contributing
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for branch, commit, and PR rules, and
+[`docs/security.md`](docs/security.md) for the no-secrets policy. Run
+`scripts/preflight.sh` before every commit.
 
 ## Next Step
 
