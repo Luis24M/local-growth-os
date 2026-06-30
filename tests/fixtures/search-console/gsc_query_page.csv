@@ -1,0 +1,7 @@
+Date,Query,Page,Country,Device,Clicks,Impressions,CTR,Position
+2026-06-01,cleaning springfield,/cleaning/springfield,usa,MOBILE,5,800,0.63%,8.0
+2026-06-08,cleaning springfield,/cleaning/springfield,usa,DESKTOP,4,400,1.00%,7.0
+2026-06-01,painting shelbyville,/painting/shelbyville,usa,MOBILE,30,300,10.00%,12.0
+2026-06-01,cleaning service,/cleaning,usa,MOBILE,1,150,0.67%,9.0
+2026-06-01,cleaning service,/services/cleaning,usa,MOBILE,1,120,0.83%,11.0
+2026-06-01,generic unbranded,/blog/tips,usa,DESKTOP,2,40,5.00%,25.0

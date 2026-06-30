@@ -221,6 +221,28 @@ derived from the web repo's logger). How rows are normalized:
 Known limit: if a sheet packs several UTMs into one column (as the pilot's
 `origine` does), per-UTM fields are left null rather than guessed.
 
+### Search Console import
+
+`src/connectors/search-console/` imports a Google Search Console CSV export
+(CSV first — no OAuth/API) into `fact_search_query` and refreshes
+`mart_seo_opportunities`:
+
+```bash
+npm run import-search-console -- <clientId> [csvPath] [--rules <path>] [--decimal . | ,] [--top N]
+# default csvPath: data/private/<clientId>/search_console.csv
+```
+
+- Headers are auto-detected (combined `Query`+`Page` exports and per-dimension
+  `Top queries`/`Top pages` exports both work).
+- Metrics are parsed, never invented: a missing clicks/impressions/CTR/position
+  cell stays null. CTR `3.45%` becomes the fraction `0.0345`; use `--decimal ,`
+  for locales that export `3,45%` / `12,3`.
+- `service_id`/`city_id` come from **configurable rules**: defaults are derived
+  from the client config (services + cities), and an optional `--rules` YAML/JSON
+  file adds explicit rules that take precedence. Nothing is hardcoded.
+
+Public fake fixtures live in `tests/fixtures/search-console/`.
+
 ## Non-Negotiables
 
 - Public repo, no secrets.
